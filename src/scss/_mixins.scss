@@ -1,0 +1,12 @@
+@import "vars";
+
+@mixin big__text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: $white;
+}
+
+@mixin smaller__text {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
+}
