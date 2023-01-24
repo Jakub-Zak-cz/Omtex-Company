@@ -8,6 +8,7 @@
 body {
     padding: 0;
     margin: 0;
+    background-color: #000;
 }
 
 .container {
@@ -19,7 +20,27 @@ body {
 
 // sekce header
 
-.header {
+
+header {
+  background: $orange-second;
+  @include smaller__text;
+}
+
+header::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+header.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+
+.under-header {
     // background-image: url("../images/hero-bg.jpg");
     background-position: top center;
     background-repeat: no-repeat;
@@ -29,30 +50,66 @@ body {
 
 }
 
-.logo img {
-    width: 50%;
-    margin-top: 25px;
+.logo {
+  float: left;
+  margin-left: -30px;
+  padding: 1px 0;
+  max-width: 40%;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+nav {
+  float: right;
+  @media (max-width: 768px) {
+    margin: 0 auto;
+  }
+}
+
+nav ul {
+  margin: 0;
+  padding: 15px 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
+  position: relative;
+  font-weight: bold;
+  @media (max-width: 768px) {
     margin-left: 25px;
+  }
 }
 
-.nav {
-    display: flex;
-    justify-content: space-between;
-    // margin-top: 50px;
-    z-index: 500;
-    width: 100%;
-    height: 78px;
-    background-color: transparent;
-    position: relative;
-    top: 21px;
-    overflow: visible;
+nav a {
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
-.header-text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+nav a:hover {
+  color: #000;
+}
+
+nav a::before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: #444;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
 }
 
 .logo__title {
@@ -71,6 +128,7 @@ body {
     // tedka je to na dva kdyztak se zeptej jestli to bude chtit na jeden oboje vypada good!
     margin: 0;
     text-transform: uppercase;
+    margin-top: 200px;
     @include big__text;
     @media (max-width: 900px) {
         font-size: 50px;
@@ -82,12 +140,22 @@ body {
     display: block;
     margin: 12px 0 80px 0;
     color: $grey;
+    text-align: center;
     @include smaller__text;
     @media (max-width: 768px) {
-        text-align: center;
         font-size: 30px;
     }
 }
+
+ .buttons-wrap {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin: 0 auto;
+     @media (max-width: 768px) {
+        flex-direction: column;
+     }
+ }
 
 .header__button {
     text-decoration: none;
@@ -113,7 +181,6 @@ body {
         margin-left: auto;
         margin-right:  auto ;
         display: block;
-        margin-bottom: 9px;
     }
 }
 
@@ -150,14 +217,14 @@ body {
 
 .about__title {
     @include big__text;
-    font-size: 46px;
+    font-size: 36px;
     line-height: 69px;
     letter-spacing: -0.03rem;
     margin-top: 0;
     margin-bottom: 4.8rem;
     color: $grey;
     @media (max-width: 768px) {
-        font-size: 30px;
+        font-size: 26px;
     }
 }
 
@@ -271,6 +338,7 @@ body {
 .produce-wrap {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     @media (max-width: 768px) {
         align-items: center;
     }

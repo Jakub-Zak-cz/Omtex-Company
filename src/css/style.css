@@ -5,6 +5,7 @@
 body {
   padding: 0;
   margin: 0;
+  background-color: #000;
 }
 
 .container {
@@ -14,7 +15,26 @@ body {
   margin-right: auto;
 }
 
-.header {
+header {
+  background: #0D87FF;
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+}
+
+header::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+header.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.under-header {
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,29 +42,70 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-.logo img {
-  width: 50%;
-  margin-top: 25px;
-  margin-left: 25px;
+.logo {
+  float: left;
+  margin-left: -30px;
+  padding: 1px 0;
+  max-width: 40%;
+}
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
 }
 
-.nav {
-  display: flex;
-  justify-content: space-between;
-  z-index: 500;
-  width: 100%;
-  height: 78px;
-  background-color: transparent;
+nav {
+  float: right;
+}
+@media (max-width: 768px) {
+  nav {
+    margin: 0 auto;
+  }
+}
+
+nav ul {
+  margin: 0;
+  padding: 15px 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 23px;
   position: relative;
-  top: 21px;
-  overflow: visible;
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  nav li {
+    margin-left: 25px;
+  }
 }
 
-.header-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+nav a {
+  color: #444;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+nav a:hover {
+  color: #000;
+}
+
+nav a::before {
+  content: "";
+  display: block;
+  height: 5px;
+  background-color: #444;
+  position: absolute;
+  top: 0;
+  width: 0%;
+  transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+  width: 100%;
 }
 
 .logo__title {
@@ -61,6 +122,7 @@ body {
   font-size: 92px;
   margin: 0;
   text-transform: uppercase;
+  margin-top: 200px;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: #fff;
@@ -76,13 +138,25 @@ body {
   display: block;
   margin: 12px 0 80px 0;
   color: #BBBBBB;
+  text-align: center;
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
 }
 @media (max-width: 768px) {
   .under__title {
-    text-align: center;
     font-size: 30px;
+  }
+}
+
+.buttons-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .buttons-wrap {
+    flex-direction: column;
   }
 }
 
@@ -91,7 +165,7 @@ body {
   display: inline-block;
   text-transform: uppercase;
   color: #fff;
-  background-color: #B59700;
+  background-color: #0D87FF;
   font-size: 14px;
   font-weight: 700;
   text-align: center;
@@ -113,12 +187,11 @@ body {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    margin-bottom: 9px;
   }
 }
 
 .left__button {
-  background-color: #B59700;
+  background-color: #0D87FF;
 }
 
 .right__button {
@@ -138,7 +211,7 @@ body {
   line-height: 1.333;
   text-transform: uppercase;
   letter-spacing: 0.25rem;
-  color: #B59700;
+  color: #0D87FF;
   margin-top: 0;
   margin-bottom: 3rem;
   position: relative;
@@ -153,7 +226,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   color: #fff;
-  font-size: 46px;
+  font-size: 36px;
   line-height: 69px;
   letter-spacing: -0.03rem;
   margin-top: 0;
@@ -162,7 +235,7 @@ body {
 }
 @media (max-width: 768px) {
   .about__title {
-    font-size: 30px;
+    font-size: 26px;
   }
 }
 
@@ -202,7 +275,7 @@ body {
   font-weight: 700;
   text-align: center;
   color: #fff;
-  background-color: #B59700;
+  background-color: #0D87FF;
   height: 48px;
   width: 48px;
   line-height: 48px;
@@ -261,7 +334,7 @@ body {
 .proces__link {
   font-family: "Nunito Sans", sans-serif;
   font-weight: 300;
-  color: #B59700;
+  color: #0D87FF;
   text-decoration: none;
   filter: brightness(100%);
 }
@@ -282,6 +355,7 @@ body {
 .produce-wrap {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 @media (max-width: 768px) {
   .produce-wrap {
@@ -350,7 +424,7 @@ body {
   justify-content: center;
   flex-wrap: wrap;
   padding: 180px 0;
-  background-color: #B59700;
+  background-color: #0D87FF;
 }
 
 .kontakt__name {
@@ -546,7 +620,7 @@ body {
   bottom: 0;
   width: 0;
   height: 2px;
-  background-color: #B59700;
+  background-color: #0D87FF;
   transition: width 0.3s ease-in-out;
 }
 
